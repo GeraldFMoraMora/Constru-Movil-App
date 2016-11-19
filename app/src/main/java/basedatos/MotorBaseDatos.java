@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class MotorBaseDatos extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION=1;
-    private static final String DATABASE_NAME="construmovil23.db";
+    private static final String DATABASE_NAME="construmovil24.db";
 
     public ModeloObjUsuario _modeloObjUsuario= new ModeloObjUsuario();
     public ModeloObjSucursal _modeloObjSucursal= new ModeloObjSucursal();

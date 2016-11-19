@@ -119,17 +119,12 @@ public class ViewProductos extends AppCompatActivity{
             this._productoNombre = tupla.getString(tupla.getColumnIndex(_modeloObjProducto.NOMBRE));
 
             if(this._productoNombre.toString().equals(this._productoSeleccionado)){
-                System.out.println("kjnhdsakjchbjsadbhfjkhsdfjkhsgdjhkfgdsaiuyf");
                 this._bandera0=true;
                 this._productoNombre= tupla.getString(tupla.getColumnIndex(_modeloObjProducto.NOMBRE));
-                System.out.println(this._productoNombre);
                 this._productoPrecio= tupla.getString(tupla.getColumnIndex(_modeloObjProducto.PRECIO));
-                System.out.println(this._productoPrecio);
                 this._productoCantidad= tupla.getString(tupla.getColumnIndex(_modeloObjProducto.CANTIDAD));
-                System.out.println(this._productoCantidad);
                 this._productoId= tupla.getString(tupla.getColumnIndex(_modeloObjProducto.ID));
             }else{
-                System.out.println("No aun");
             }
         }
         bd.close();

@@ -39,15 +39,6 @@
                     android:background="#f56923"
                     android:onClick="onClick"/>
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:text="Fast Buy"
-                    android:id="@+id/btnFast"
-                    android:layout_gravity="center_horizontal"
-                    android:background="#f4b523"
-                    android:onClick="onClick"/>
             </LinearLayout>
 
             <LinearLayout
