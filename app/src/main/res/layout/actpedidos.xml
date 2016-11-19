@@ -2,5 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+        android:id="@+id/turras"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.77"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Terminar Pedido"
+        android:id="@+id/btnTerminar"
+        android:layout_gravity="center_horizontal"
+        android:background="#d38e0e"
+        android:textColor="#ffffff"
+        android:onClick="onClick"
+        android:visibility="invisible" />
 
 </LinearLayout>

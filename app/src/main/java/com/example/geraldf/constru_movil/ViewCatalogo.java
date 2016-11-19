@@ -1,5 +1,6 @@
 package com.example.geraldf.constru_movil;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import basedatos.BaseDatosSecundaria;
+import basedatos.ModeloObjPedido;
 import basedatos.ModeloObjProducto;
 import basedatos.MotorBaseDatos;
 
@@ -24,11 +26,11 @@ import basedatos.MotorBaseDatos;
  * Created by GeraldF on 06/11/2016.
  */
 public class ViewCatalogo extends AppCompatActivity{
-    private Intent _screen;
     ModeloObjProducto _modeloObjProducto;
     ListView prueba;
     ArrayList<String> listValues;
     private String _productoConsultar;
+    private Intent _screen;
     private Intent _entrada;
     private ArrayList<ProductoObj> _valuesParaPedido = new ArrayList<ProductoObj>();
 
@@ -45,6 +47,10 @@ public class ViewCatalogo extends AppCompatActivity{
     private String _formatHora;
     private int _totalPedido=0;
 
+    private ModeloObjPedido _ModeloObjPedido;
+
+    private ContentValues _valuesPedido;
+
     /**
      *
      * @param v
@@ -55,6 +61,11 @@ public class ViewCatalogo extends AppCompatActivity{
                     if (this.contDatos!=0){
                         this.contDatos=0;
                         _btnTerminar.setVisibility(View.INVISIBLE);
+                        this.CreacionPedido();
+                        _screen=new Intent(this,RegPedidos.class);
+                        _screen.putExtra("username",username);
+                        _screen.putExtra("usernameVendedor",usernameVendedor);
+                        startActivity(_screen);
                     }
                 break;
         }
@@ -76,7 +87,9 @@ public class ViewCatalogo extends AppCompatActivity{
         Toast.makeText(getApplicationContext(), this._formatFecha, Toast.LENGTH_SHORT).show();
         Toast.makeText(getApplicationContext(), this._formatHora, Toast.LENGTH_SHORT).show();
 
-        _entrada=getIntent();
+        this._valuesPedido=new ContentValues();
+
+        this._entrada=getIntent();
 
         this._btnTerminar=(Button) findViewById(R.id.btnTerminar);
         this.username=_entrada.getStringExtra("username");
@@ -174,7 +187,7 @@ public class ViewCatalogo extends AppCompatActivity{
         while(tupla.moveToNext()){
             this.contDatos+=1;
             this._totalPedido+=Integer.parseInt(tupla.getString(tupla.getColumnIndex("Precio")).toString())*Integer.parseInt(tupla.getString(tupla.getColumnIndex("Cantidad")).toString());
-          
+
             String name = tupla.getString(tupla.getColumnIndex("Producto"));
             String id = tupla.getString(tupla.getColumnIndex("Cantidad"));
             System.out.println("Total pedido: "+this._totalPedido);
@@ -183,6 +196,20 @@ public class ViewCatalogo extends AppCompatActivity{
             System.out.println("Un total de: "+id);
         }
         bd.close();
+    }
+    /**
+     *
+     */
+    public void CreacionPedido(){
+        MotorBaseDatos admi= new MotorBaseDatos(this);
+        SQLiteDatabase bd= admi.getWritableDatabase();
+        this._valuesPedido.put(this._ModeloObjPedido.FECHA, this._formatFecha);
+        this._valuesPedido.put(this._ModeloObjPedido.HORA, this._formatHora);
+        this._valuesPedido.put(this._ModeloObjPedido.TOTAL, String.valueOf(this._totalPedido));
+        this._valuesPedido.put(this._ModeloObjPedido.ESTADO, "1");
+        bd.insert("USUARIO",null,this._valuesPedido);
+        bd.close();
+        Toast.makeText(getApplicationContext(), "llenado con exito", Toast.LENGTH_SHORT).show();
     }
 
 }
