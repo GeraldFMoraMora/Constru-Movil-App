@@ -16,6 +16,7 @@ import android.widget.Toast;
 import basedatos.BaseDatosSecundaria;
 import basedatos.ModeloObjCli_Ped;
 import basedatos.ModeloObjPedido;
+import basedatos.ModeloObjPro_Ped;
 import basedatos.MotorBaseDatos;
 
 /**
@@ -27,6 +28,7 @@ public class ViewPedidos extends AppCompatActivity{
     private String _hora1,_fecha1,_total1,_estado1,_id1;
     private ModeloObjPedido _ModeloObjPedido;
     private ModeloObjCli_Ped _ModeloObjCli_ped;
+    private ModeloObjPro_Ped _ModeloObjPro_ped;
     private String usernameVendedor;
     private String username;
     private Intent _entrada;
@@ -44,6 +46,7 @@ public class ViewPedidos extends AppCompatActivity{
 
         this._valuesPedido=new ContentValues();
         this._valuesPedido1=new ContentValues();
+        this._valuesPedido2=new ContentValues();
 
         this._fecha=(TextView) findViewById(R.id._fechafecha);
         this._hora=(TextView) findViewById(R.id._horahora);
@@ -95,6 +98,7 @@ public class ViewPedidos extends AppCompatActivity{
                 this._estado.setText(this._estado1.toString());
                 this.llenadoCliente_Pedido();
                 this.llenadoVendedor_Pedido();
+                this.llenadoProducto_Pedido();
             }
         }
         bd.close();
@@ -129,14 +133,23 @@ public class ViewPedidos extends AppCompatActivity{
     public void llenadoProducto_Pedido(){
         MotorBaseDatos admi= new MotorBaseDatos(this);
         SQLiteDatabase bd= admi.getWritableDatabase();
-        MotorBaseDatos admi1= new MotorBaseDatos(this);
+        BaseDatosSecundaria admi1= new BaseDatosSecundaria(this);
         SQLiteDatabase bd1= admi1.getWritableDatabase();
-        this._valuesPedido1.put(this._ModeloObjCli_ped.ID_USARIO, this.usernameVendedor);
-        this._valuesPedido1.put(this._ModeloObjCli_ped.ID_PEDIDO, this._id1.toString());
-        bd.insert("PRODUCTO_PEDIDO",null,this._valuesPedido1);
+        Cursor tupla = bd1.query("DATOS", // Nombre de la tabla
+                null, // Lista de Columnas a consultar
+                null, // Columnas para la cláusula WHERE
+                null, // Valores a comparar con las columnas del WHERE
+                null, // Agrupar con GROUP BY
+                null, // Condición HAVING para GROUP BY
+                null); // Cláusula ORDER BY
+        while(tupla.moveToNext()){
+            this._valuesPedido2.put(this._ModeloObjPro_ped.ID_PRODUCTO, tupla.getString(tupla.getColumnIndex("Id_Producto")));
+            this._valuesPedido2.put(this._ModeloObjPro_ped.ID_PEDIDO,this._id1.toString());
+        }
+        bd.insert("PRODUCTO_PEDIDO",null,this._valuesPedido2);
         bd1.close();
         bd.close();
-        Toast.makeText(getApplicationContext(), "llenado con exito2", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "llenado con exito3", Toast.LENGTH_SHORT).show();
     }
 
 }
