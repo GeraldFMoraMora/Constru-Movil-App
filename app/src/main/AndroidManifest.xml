@@ -56,6 +56,11 @@
             android:label="@string/view_catalogo">
         </activity>
         <activity
+            android:name=".ViewPedidos"
+            android:screenOrientation="portrait"
+            android:label="@string/view_pedidos">
+        </activity>
+        <activity
             android:name=".ViewLoginCliente"
             android:screenOrientation="portrait"
             android:label="@string/login_clientes">

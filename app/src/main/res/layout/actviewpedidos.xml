@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:weightSum="1">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Pedido Registrado"
+                    android:id="@+id/textView"
+                    android:layout_gravity="center_horizontal" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.40" />
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Id registrado"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Id"
+                    android:id="@+id/_idid"
+                    android:layout_gravity="center_horizontal" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Fecha registrada"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Fecha"
+                    android:id="@+id/_fechafecha"
+                    android:layout_gravity="center_horizontal" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Hora registrada"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Hora"
+                    android:id="@+id/_horahora"
+                    android:layout_gravity="center_horizontal" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Estado registrado"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Estado"
+                    android:id="@+id/_estadoestado"
+                    android:layout_gravity="center_horizontal" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Total registrado"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Total"
+                    android:id="@+id/_totaltotal"
+                    android:layout_gravity="center_horizontal" />
+
+
+            </LinearLayout>
+        </TableRow>
+    </RelativeLayout>
+</LinearLayout>

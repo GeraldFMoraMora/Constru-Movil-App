@@ -1,5 +1,6 @@
 package com.example.geraldf.constru_movil;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class RegPedidos extends AppCompatActivity {
     ArrayList<String> listValues;
     private ModeloObjPedido _moModeloObjPedido;
     private String _pedidoConsultar;
+    private Intent _screen;
     /**
      *
      * @param savedIntanceState
@@ -78,10 +80,21 @@ public class RegPedidos extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Toast.makeText(getApplicationContext(), listValues.get(position), Toast.LENGTH_SHORT).show();
+
                 _pedidoConsultar=listValues.get(position).toString();
 
+
+                openView();
                 //ejecutarViewProducto();
             }
         });
+    }
+    /**
+     * Metodo para poder utilizar una inicializacion de actividad por medio del intent.
+     */
+    public void openView(){
+        _screen= new Intent(this, ViewPedidos.class);
+        _screen.putExtra("_id_pedido",_pedidoConsultar);
+        startActivity(_screen);
     }
 }
