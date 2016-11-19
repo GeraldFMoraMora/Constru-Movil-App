@@ -95,9 +95,7 @@ public class ViewLoginVendedor extends AppCompatActivity {
         while(tupla.moveToNext()){
             this._user = tupla.getString(tupla.getColumnIndex(_modeloObjUsuario.USER));
             // Acciones...
-            System.out.println(_user);
             this._contrasena= tupla.getString(tupla.getColumnIndex(_modeloObjUsuario.CONTRASEÑA));
-            System.out.println(_contrasena);
 
             if(this._usernameET.getText().toString().equals(this._user)){
                 this._bandera0=true;
@@ -114,7 +112,6 @@ public class ViewLoginVendedor extends AppCompatActivity {
     public void llenadoDatos(){
         MotorBaseDatos admi= new MotorBaseDatos(this);
         SQLiteDatabase bd= admi.getWritableDatabase();
-        //this._valuesRol.put(this._modeloObjCategoria.ID, "0");
 
         this.consultProveedores();
 
@@ -140,7 +137,6 @@ public class ViewLoginVendedor extends AppCompatActivity {
             this._bandera2=false;
         }
         bd.close();
-        Toast.makeText(getApplicationContext(), "llenado con exito", Toast.LENGTH_SHORT).show();
     }
     public void consultProveedores(){
         MotorBaseDatos admi= new MotorBaseDatos(this);

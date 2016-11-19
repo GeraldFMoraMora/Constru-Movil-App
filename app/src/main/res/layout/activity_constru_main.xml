@@ -148,20 +148,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Control"
-            android:id="@+id/tvControl"
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/tvMantenimiento"
-            android:background="#d6db40"
-            android:layout_alignEnd="@+id/tvMantenimiento"
-            android:layout_alignStart="@+id/tvMantenimiento"
-            android:clickable="true"
-            android:onClick="onClick"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Registro"
             android:id="@+id/tvRegistro"
             android:layout_alignParentTop="true"
@@ -189,13 +175,13 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Catálogo"
             android:id="@+id/tvCatalogo"
-            android:layout_below="@+id/tvControl"
             android:layout_marginTop="30dp"
-            android:layout_alignEnd="@+id/tvControl"
-            android:layout_alignStart="@+id/tvControl"
             android:onClick="onClick"
             android:clickable="true"
-            android:background="#db5540" />
+            android:background="#db5540"
+            android:layout_below="@+id/tvMantenimiento"
+            android:layout_alignEnd="@+id/tvMantenimiento"
+            android:layout_alignStart="@+id/tvMantenimiento" />
 
         <Button
             android:layout_width="wrap_content"

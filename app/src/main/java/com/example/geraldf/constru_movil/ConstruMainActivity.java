@@ -90,11 +90,6 @@ public class ConstruMainActivity extends AppCompatActivity {
                 _layoutMainOptions.setVisibility(View.INVISIBLE);
                 _layoutRegOptions.setVisibility(View.VISIBLE);
                 break;
-            case R.id.tvControl:
-                Toast.makeText(getApplicationContext(), "Control", Toast.LENGTH_SHORT).show();
-                _layoutControlOptions.setVisibility(View.VISIBLE);
-                _layoutMainOptions.setVisibility(View.INVISIBLE);
-                break;
             case R.id.tvMantenimiento:
                 Toast.makeText(getApplicationContext(), "Mantenimiento", Toast.LENGTH_SHORT).show();
                 _layoutManteOptions.setVisibility(View.VISIBLE);
@@ -160,7 +155,6 @@ public class ConstruMainActivity extends AppCompatActivity {
 
 
         _btnRegistro =((TextView) findViewById(R.id.tvRegistro));
-        _btnControl =((TextView) findViewById(R.id.tvControl));
         _btnMantenimiento = ((TextView) findViewById(R.id.tvMantenimiento));
         _layoutMainOptions=((RelativeLayout) findViewById(R.id.rlMainOptions));
         _layoutRegOptions=((RelativeLayout) findViewById(R.id.rlRegOptions));
@@ -168,7 +162,6 @@ public class ConstruMainActivity extends AppCompatActivity {
         _layoutManteOptions=((RelativeLayout) findViewById(R.id.rlManteOptions));
         _update=((Button) findViewById(R.id.btnStart));
 
-        //_CreatorEdit=(EditText)findViewById(R.id.creatortext1);
         _modeloObjRol= new ModeloObjRol();
         _modeloObjSucursal=new ModeloObjSucursal();
 
@@ -204,8 +197,6 @@ public class ConstruMainActivity extends AppCompatActivity {
      */
     @Override
     public void onBackPressed(){
-        //_Screen=new Intent(this, typegame.class);
-        //startActivity(_Screen);
         _layoutRegOptions.setVisibility(View.INVISIBLE);
         _layoutControlOptions.setVisibility(View.INVISIBLE);
         _layoutManteOptions.setVisibility(View.INVISIBLE);
@@ -215,16 +206,9 @@ public class ConstruMainActivity extends AppCompatActivity {
      *
      */
     public void llenadoDatos(){
-        /**BaseDatosSecundaria administrador= new BaseDatosSecundaria(this);
-        SQLiteDatabase bdsecunadaria= administrador.getWritableDatabase();
-        _valuesTest.put("Producto", "Banano");
-        _valuesTest.put("Cantidad","12");
-        bdsecunadaria.insert("DATOS",null,this._valuesTest);
-        bdsecunadaria.close();*/
 
         MotorBaseDatos admi= new MotorBaseDatos(this);
         SQLiteDatabase bd= admi.getWritableDatabase();
-        //this._valuesRol.put(this._modeloObjCategoria.ID, "0");
 
         this.consultProveedores();
 
@@ -264,7 +248,6 @@ public class ConstruMainActivity extends AppCompatActivity {
         bd.close();
         
         consultRoles();
-        Toast.makeText(getApplicationContext(), "llenado con exito", Toast.LENGTH_SHORT).show();
     }
     public void consultRoles(){
         MotorBaseDatos admi= new MotorBaseDatos(this);
@@ -280,8 +263,6 @@ public class ConstruMainActivity extends AppCompatActivity {
             String name = tupla.getString(tupla.getColumnIndex(_modeloObjRol.TIPO));
             String id = tupla.getString(tupla.getColumnIndex(_modeloObjRol.ID));
             // Acciones...
-            System.out.println("ROL:"+name);
-            System.out.println("ROL ID:"+id);
             comidas.add(name);
         }
         bd.close();

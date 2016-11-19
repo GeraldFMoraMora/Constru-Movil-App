@@ -78,7 +78,6 @@ public class ViewProductos extends AppCompatActivity{
         this.username=_entradaDatos.getStringExtra("username");
         this.usernameVendedor=_entradaDatos.getStringExtra("usernameVendedor");
 
-        Toast.makeText(getApplicationContext(), _productoSeleccionado, Toast.LENGTH_SHORT).show();
 
         this.consultEachProducto();
 

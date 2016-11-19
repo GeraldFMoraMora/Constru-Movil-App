@@ -76,7 +76,6 @@ public class RegPedidos extends AppCompatActivity {
             String estado = tupla.getString(tupla.getColumnIndex(_moModeloObjPedido.ESTADO));
             String total = tupla.getString(tupla.getColumnIndex(_moModeloObjPedido.TOTAL));
             // Acciones...
-            System.out.println("ID:"+id);
             this.listValues.add(id);
         }
         bd.close();
@@ -88,7 +87,7 @@ public class RegPedidos extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(getApplicationContext(), listValues.get(position), Toast.LENGTH_SHORT).show();
+
 
                 _pedidoConsultar=listValues.get(position).toString();
 

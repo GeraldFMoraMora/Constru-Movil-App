@@ -79,7 +79,6 @@ public class RegProductos extends AppCompatActivity {
             case R.id.btnAdd0:
                 this.consultCategorias();
                 if (this._bandera0 == true) {
-                    Toast.makeText(getApplicationContext(), "Si se encontro", Toast.LENGTH_SHORT).show();
                     this.consultSucursales();
                     if(this._bandera1==true){
                         this.consultProveedores();
@@ -160,7 +159,6 @@ public class RegProductos extends AppCompatActivity {
         while (tupla.moveToNext()) {
             this._nombreCategoria = tupla.getString(tupla.getColumnIndex(this._modeloObjCategoria.NOMBRE));
             // Acciones...
-            System.out.println("Categoria:" + this._nombreCategoria);
             if (this._nombreCategoria.toString().equals(this._tvCategoria.getText().toString())) {
                 this._bandera0 = true;
                 this._idCategoria = tupla.getString(tupla.getColumnIndex(this._modeloObjCategoria.ID));
@@ -188,15 +186,7 @@ public class RegProductos extends AppCompatActivity {
         this.consultProductos();
         this.llenadoCategoriaProducto();
 
-        //this._tvNombre.setText("");
-        //this._tvDescripcion.setText("");
-        //this._tvExento.setText("");
-        //this._tvCantidad.setText("");
-        //this._tvPrecio.setText("");
-        //this._tvSucursal.setText("");
-        //this._tvProveedor.setText("");
-        //this._tvCantidad.setText("");
-        Toast.makeText(getApplicationContext(), "llenado con exito", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "llenado con exito PRODUCTO", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -218,7 +208,6 @@ public class RegProductos extends AppCompatActivity {
             // Acciones...
             if (nombreProducto.toString().equals(this._nombreProducto)) {
                 this._idProducto = tupla.getString(tupla.getColumnIndex(this._modeloObjProducto.ID));
-                System.out.println("Aca esta el ID del producto:  " + this._idProducto);
             }
         }
         bd.close();
@@ -256,7 +245,6 @@ public class RegProductos extends AppCompatActivity {
         while (tupla.moveToNext()) {
             this._nombreSucursal = tupla.getString(tupla.getColumnIndex(this._ModeloObjSucursal.NOMBRE));
             // Acciones...
-            System.out.println("Sucursal:" + this._nombreSucursal);
             if (_nombreSucursal.toString().equals(this._tvSucursal.getText().toString())) {
                 this._bandera1 = true;
                 this._idSucursal = tupla.getString(tupla.getColumnIndex(this._ModeloObjSucursal.ID));
@@ -295,7 +283,6 @@ public class RegProductos extends AppCompatActivity {
             this._nombreUsuario = tupla.getString(tupla.getColumnIndex(this._mModeloObjUsuario.USER)).toString();
             if (this._nombreUsuario.toString().equals(this._tvProveedor.getText().toString())) {
                 this._bandera2 = true;
-                System.out.println("Nombre de proveedores: " + this._nombreUsuario);
             }
         }
         bd.close();
@@ -320,13 +307,6 @@ public class RegProductos extends AppCompatActivity {
             }else{
                 this._bandera3=false;
             }
-            //String id = tupla.getString(tupla.getColumnIndex(_ModeloObjRol_usu.ID));
-            //String id_rol = tupla.getString(tupla.getColumnIndex(_ModeloObjRol_usu.ID_ROL));
-            //String id_user = tupla.getString(tupla.getColumnIndex(_ModeloObjRol_usu.ID_USUARIO));
-            // Acciones...
-            //System.out.println("ID: "+id);
-            //System.out.println("ID ROL: "+id_rol);
-            //System.out.println("ID USER: "+id_user);
         }
         bd.close();
     }

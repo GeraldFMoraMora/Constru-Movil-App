@@ -58,7 +58,6 @@ public class ViewPedidos extends AppCompatActivity{
         this._id_pedido=_entrada.getStringExtra("_id_pedido");
         this.username=_entrada.getStringExtra("username");
         this.usernameVendedor=_entrada.getStringExtra("usernameVendedor");
-        System.out.println("+++++************************+++++++++++++++++++********************++++++++++++"+_id_pedido);
 
         this.leerDatos();
 
@@ -113,7 +112,7 @@ public class ViewPedidos extends AppCompatActivity{
         this._valuesPedido.put(this._ModeloObjCli_ped.ID_PEDIDO, this._id1.toString());
         bd.insert("CLIENTE_PEDIDO",null,this._valuesPedido);
         bd.close();
-        Toast.makeText(getApplicationContext(), "llenado con exito", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "llenado con exito CLIENTE_PEDIDO", Toast.LENGTH_SHORT).show();
     }
     /**
      *
@@ -125,7 +124,7 @@ public class ViewPedidos extends AppCompatActivity{
         this._valuesPedido1.put(this._ModeloObjCli_ped.ID_PEDIDO, this._id1.toString());
         bd.insert("VENDEDOR_PEDIDO",null,this._valuesPedido1);
         bd.close();
-        Toast.makeText(getApplicationContext(), "llenado con exito2", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "llenado con exito VENDEDOR_PEDIDO", Toast.LENGTH_SHORT).show();
     }
     /**
      *
@@ -149,7 +148,7 @@ public class ViewPedidos extends AppCompatActivity{
         bd.insert("PRODUCTO_PEDIDO",null,this._valuesPedido2);
         bd1.close();
         bd.close();
-        Toast.makeText(getApplicationContext(), "llenado con exito3", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "llenado con exito PRODUCTO_PEDIDO", Toast.LENGTH_SHORT).show();
     }
 
 }

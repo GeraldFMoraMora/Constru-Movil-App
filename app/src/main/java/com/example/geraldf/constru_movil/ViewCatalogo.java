@@ -79,13 +79,9 @@ public class ViewCatalogo extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actviewcatalogo);
 
-        //this._valuesParaPedido=_entrada.getParcelableArrayListExtra("_valuesParaPedido");
-        //Toast.makeText(getApplicationContext(),_valuesParaPedido.get(0), Toast.LENGTH_SHORT).show();
 
         this._formatFecha= this._fecha.format(new Date());
         this._formatHora = this._hora.format(new Date());
-        Toast.makeText(getApplicationContext(), this._formatFecha, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(), this._formatHora, Toast.LENGTH_SHORT).show();
 
         this._valuesPedido=new ContentValues();
 
@@ -134,7 +130,6 @@ public class ViewCatalogo extends AppCompatActivity{
         while(tupla.moveToNext()){
             String name = tupla.getString(tupla.getColumnIndex(_modeloObjProducto.NOMBRE));
             // Acciones...
-            System.out.println("PRODUCTO:"+name);
             this.listValues.add(name);
         }
         bd.close();
@@ -148,7 +143,6 @@ public class ViewCatalogo extends AppCompatActivity{
                                     int position, long id) {
                 VereficardatosParaPedido();
                 _totalPedido=0;
-                Toast.makeText(getApplicationContext(), listValues.get(position), Toast.LENGTH_SHORT).show();
                 _productoConsultar=listValues.get(position).toString();
                 ejecutarViewProducto();
             }
@@ -165,8 +159,6 @@ public class ViewCatalogo extends AppCompatActivity{
         _screen.putExtra("_productoConsultar",this._productoConsultar);
         _screen.putExtra("username",username);
         _screen.putExtra("usernameVendedor",usernameVendedor);
-        Toast.makeText(getApplicationContext(), this.username, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(), this.usernameVendedor, Toast.LENGTH_SHORT).show();
         startActivity(_screen);
     }
 
@@ -190,10 +182,6 @@ public class ViewCatalogo extends AppCompatActivity{
 
             String name = tupla.getString(tupla.getColumnIndex("Producto"));
             String id = tupla.getString(tupla.getColumnIndex("Cantidad"));
-            System.out.println("Total pedido: "+this._totalPedido);
-            // Acciones...
-            System.out.println("A comprar: "+name);
-            System.out.println("Un total de: "+id);
         }
         bd.close();
     }
@@ -209,7 +197,7 @@ public class ViewCatalogo extends AppCompatActivity{
         this._valuesPedido.put(this._ModeloObjPedido.ESTADO, "1");
         bd.insert("PEDIDO",null,this._valuesPedido);
         bd.close();
-        Toast.makeText(getApplicationContext(), "llenado con exito", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "llenado con exito PEDIDO", Toast.LENGTH_SHORT).show();
     }
 
 }

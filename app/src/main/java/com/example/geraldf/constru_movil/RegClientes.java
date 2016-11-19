@@ -106,7 +106,7 @@ public class RegClientes extends AppCompatActivity {
         this._tvProvincia.setText("");
         this._tvCanton.setText("");
         this._tvDistrito.setText("");
-        Toast.makeText(getApplicationContext(), "llenado con exito", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "llenado con exito USUARIO Y ROL_USUARIO", Toast.LENGTH_SHORT).show();
     }
     public void consultClientes(){
         MotorBaseDatos admi= new MotorBaseDatos(this);
@@ -121,7 +121,6 @@ public class RegClientes extends AppCompatActivity {
          while(tupla.moveToNext()){
              String name = tupla.getString(tupla.getColumnIndex(_modeloObjUsuario.NOMBRE));
              // Acciones...
-             System.out.println(name);
              if(this._tvNombre.getText().toString()==name.toString()){
                  System.out.println(tupla.getString(tupla.getColumnIndex(_modeloObjUsuario.USER)));
              }
@@ -144,9 +143,6 @@ public class RegClientes extends AppCompatActivity {
             String id_rol = tupla.getString(tupla.getColumnIndex(_ModeloObjRol_usu.ID_ROL));
             String id_user = tupla.getString(tupla.getColumnIndex(_ModeloObjRol_usu.ID_USUARIO));
             // Acciones...
-            System.out.println("ID: "+id);
-            System.out.println("ID ROL: "+id_rol);
-            System.out.println("ID USER: "+id_user);
         }
         bd.close();
     }

@@ -51,7 +51,6 @@ public class RegCategoria extends AppCompatActivity {
     public void llenadoDatos(){
         MotorBaseDatos admi= new MotorBaseDatos(this);
         SQLiteDatabase bd= admi.getWritableDatabase();
-        //this._valuesCategoria.put(this._modeloObjCategoria.ID, "0");
         this._valuesCategoria.put(this._modeloObjCategoria.NOMBRE, this._tvNombre.getText().toString());
         this._valuesCategoria.put(this._modeloObjCategoria.DESCRIPCION, this._tvDescripcion.getText().toString());
         bd.insert("CATEGORIA",null,this._valuesCategoria);
@@ -59,7 +58,7 @@ public class RegCategoria extends AppCompatActivity {
         consultLawyers();
         this._tvNombre.setText("");
         this._tvDescripcion.setText("");
-        Toast.makeText(getApplicationContext(), "llenado con exito", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "llenado con exito CATEGORIA", Toast.LENGTH_SHORT).show();
     }
     public void consultLawyers(){
         MotorBaseDatos admi= new MotorBaseDatos(this);
@@ -74,7 +73,6 @@ public class RegCategoria extends AppCompatActivity {
         while(tupla.moveToNext()){
             String name = tupla.getString(tupla.getColumnIndex(_modeloObjCategoria.NOMBRE));
             // Acciones...
-            System.out.println("Categoria:"+name);
         }
         bd.close();
     }

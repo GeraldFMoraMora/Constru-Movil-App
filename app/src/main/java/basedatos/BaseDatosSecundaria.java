@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class BaseDatosSecundaria extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION=1;
-    private static final String DATABASE_NAME="manejodatos16.db";
+    private static final String DATABASE_NAME="manejodatos17.db";
 
 
     /**

@@ -70,10 +70,6 @@ public class ViewLoginCliente extends AppCompatActivity {
     }
     @Override
     public void onBackPressed(){
-        //this.usernameviewer =this._usernameET.getText().toString();
-        //_screen=new Intent(this,ConstruMainActivity.class);
-        //_screen.putExtra("usernameviewer", usernameviewer);
-        //startActivity(_screen);
         finish();
     }
     public void consultClientesRegistrados(){
@@ -89,9 +85,7 @@ public class ViewLoginCliente extends AppCompatActivity {
         while(tupla.moveToNext()){
             this._user = tupla.getString(tupla.getColumnIndex(_modeloObjUsuario.USER));
             // Acciones...
-            System.out.println(_user);
             this._contrasena= tupla.getString(tupla.getColumnIndex(_modeloObjUsuario.CONTRASEÑA));
-            System.out.println(_contrasena);
 
             if(this._usernameET.getText().toString().equals(this._user)){
                 this._bandera0=true;
