@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text=" "
+                    android:id="@+id/textView15" />
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Nombre"
+                    android:id="@+id/textView4"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ffffff"
+                    android:background="#333333"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/regCategoriaNombre"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:maxLength="40"
+                    />
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Descripción"
+                    android:id="@+id/textView5"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ffffff"
+                    android:background="#333333"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/regCategoriaDescripcion"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:maxLength="100"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="Add"
+                    android:id="@+id/button"
+                    android:background="#cf3767"
+                    android:textColor="#ffffff"
+                    android:clickable="true"
+                    android:elegantTextHeight="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:enabled="true"
+                    android:typeface="monospace"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onClick"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Constru-Movil</string>
+    <string name="reg_categorias">Registro categorías</string>
+    <string name="reg_clientes">Registro clientes</string>
+    <string name="reg_pedidos">Registro pedidos</string>
+    <string name="reg_productos">Registro productos</string>
+    <string name="reg_proveedores">Registro proveedores</string>
+    <string name="reg_vendedores">Registro vendedores</string>
+    <string name="view_productos">Demostracion producto</string>
+    <string name="view_catalogo">Catalogo productos disponibles</string>
+    <string name="login_clientes">Registro pedidos</string>
+    <string name="login_vendedores">Registro pedidos</string>
+</resources>

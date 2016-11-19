@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="94dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.81"
+                android:weightSum="1"
+                android:background="#ffdf00">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="317dp"
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/imageViewProducto"
+                    android:src="@drawable/imagen_no_disponible" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Add to cart"
+                    android:id="@+id/btnCarrito"
+                    android:background="#f56923" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Fast Buy"
+                    android:id="@+id/btnFast"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#f4b523" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="117dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.24"
+                android:weightSum="1"
+                android:background="#333333">
+
+                <TextView
+                    android:layout_width="141dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Producto"
+                    android:id="@+id/textView16"
+                    android:layout_weight="0.00"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:id="@+id/viewNombre"
+                    android:layout_weight="0.03"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Precio"
+                    android:id="@+id/textView17"
+                    android:layout_weight="0.07"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:id="@+id/viewPrecio"
+                    android:layout_weight="0.03"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Categoria:"
+                    android:id="@+id/textView18"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Cat1"
+                    android:id="@+id/ViewCategoria"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Cant. Disponible"
+                    android:id="@+id/textView20"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="5 Uds"
+                    android:id="@+id/ViewCantidad"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Cant.Adquirir"
+                    android:id="@+id/textView24"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.00"
+                    android:textColor="#ffffff" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/regCantidad"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.00"
+                    android:textAlignment="center"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#dbdbdb"
+                    android:hint="0" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

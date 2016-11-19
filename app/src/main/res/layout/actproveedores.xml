@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView3" >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/textView14" />
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Número Cedula"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#ffffff"
+                        android:background="#333333"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/regProveedorCedula"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:maxLength="20"
+                        android:maxLines="1"/>
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Usuario"
+                        android:id="@+id/textView12"
+                        android:textColor="#ffffff"
+                        android:background="#333333"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/regProveedorUsuario"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:maxLength="40"
+                        android:maxLines="1"/>
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Contraseña"
+                        android:id="@+id/textView13"
+                        android:textColor="#ffffff"
+                        android:background="#333333"
+                        android:textAlignment="center"  />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:ems="10"
+                        android:id="@+id/regProveedorContraseña"
+                        android:textColor="#000000"
+                        android:maxLength="20"
+                        android:textAlignment="center"
+                        android:maxLines="1"/>
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Nombre"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#ffffff"
+                        android:background="#333333"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/regProveedorNombre"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:maxLength="40"
+                        android:maxLines="1"/>
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Primer Apellido"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#ffffff"
+                        android:background="#333333"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/regProveedorApellido1"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:maxLength="40"
+                        android:maxLines="1"/>
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Segundo Apellido"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#ffffff"
+                        android:background="#333333"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/regProveedorApellido2"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:maxLength="40"
+                        android:maxLines="1"/>
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Fecha Nacimiento"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#ffffff"
+                        android:background="#333333"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/regProveedorNacimiento"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:maxLength="20"
+                        android:maxLines="1"/>
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Teléfono Celular"
+                        android:id="@+id/textView10"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#ffffff"
+                        android:background="#333333"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:ems="10"
+                        android:id="@+id/regProveedorTelefono"
+                        android:layout_gravity="center_horizontal"
+                        android:hint="Format: 86509736"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:maxLines="1"
+                        android:textColorHint="#7a7a7a"
+                        android:maxLength="10" />
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Provincia"
+                        android:id="@+id/textView8"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#ffffff"
+                        android:background="#333333"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/regProveedorProvincia"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:maxLines="1"
+                        android:maxLength="40" />
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Cantón"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#ffffff"
+                        android:background="#333333"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/regProveedorCanton"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:maxLines="1"
+                        android:maxLength="40" />
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Distrito"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#ffffff"
+                        android:background="#333333"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/regProveedorDistrito"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:maxLines="1"
+                        android:maxLength="40" />
+
+                </LinearLayout>
+            </ScrollView>
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_marginLeft="5dp"
+                android:layout_height="92dp"
+                android:text="Add"
+                android:id="@+id/button"
+                android:background="#cf3767"
+                android:textColor="#ffffff"
+                android:clickable="true"
+                android:elegantTextHeight="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:enabled="true"
+                android:typeface="monospace"
+                android:layout_gravity="center_vertical"
+                android:onClick="onClick"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

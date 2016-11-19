@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.geraldf.constru_movil.ConstruMainActivity"
+    android:visibility="visible">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello, welcome to Constru-Movil!"
+        android:id="@+id/saludo"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/rlRegOptions"
+        android:onClick="onClick"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/saludo1"
+        android:onClick="onClick"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:id="@+id/btnStart"
+        android:onClick="onClick"
+        android:layout_below="@+id/saludo"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:id="@+id/rlRegOptions"
+        android:layout_alignTop="@+id/rlMainOptions"
+        android:visibility="invisible"
+        android:background="@color/highlighted_text_material_dark">
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" Registrar Cliente "
+            android:id="@+id/btnRegCliente"
+            android:layout_marginTop="55dp"
+            android:layout_alignParentTop="true"
+            android:textAlignment="center"
+            android:background="#8ae3da"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" Registrar Producto "
+            android:id="@+id/btnRegProducto"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/btnRegCliente"
+            android:layout_alignStart="@+id/btnRegCliente"
+            android:textAlignment="center"
+            android:background="#8ae3da"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" Registrar Proveedor "
+            android:id="@+id/btnRegProvedor"
+            android:layout_above="@+id/btnRegCategoria"
+            android:layout_alignStart="@+id/btnRegCategoria"
+            android:layout_marginBottom="58dp"
+            android:textAlignment="center"
+            android:background="#8ae3da"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" Registrar Categoría "
+            android:id="@+id/btnRegCategoria"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/btnRegProducto"
+            android:layout_marginBottom="81dp"
+            android:textAlignment="center"
+            android:background="#8ae3da"
+            android:onClick="onClick"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/rlMainOptions"
+        android:id="@+id/rlManteOptions"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="En construccion: Aca la vara de mantenimiento"
+            android:id="@+id/textView2"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="69dp"
+            android:onClick="onClick"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rlControlOptions"
+            android:visibility="invisible"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En construccion: Aca va la vara de control"
+                android:id="@+id/textView3"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btnStart"
+        android:layout_centerHorizontal="true"
+        android:clickable="false"
+        android:id="@+id/rlMainOptions"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Control"
+            android:id="@+id/tvControl"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/tvMantenimiento"
+            android:background="#d6db40"
+            android:layout_alignEnd="@+id/tvMantenimiento"
+            android:layout_alignStart="@+id/tvMantenimiento"
+            android:clickable="true"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Registro"
+            android:id="@+id/tvRegistro"
+            android:layout_alignParentTop="true"
+            android:background="#db404a"
+            android:layout_alignEnd="@+id/tvMantenimiento"
+            android:layout_alignStart="@+id/tvMantenimiento"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" Mantenimiento "
+            android:id="@+id/tvMantenimiento"
+            android:layout_below="@+id/tvRegistro"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:background="#40a2db"
+            android:clickable="true"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Catálogo"
+            android:id="@+id/tvCatalogo"
+            android:layout_below="@+id/tvControl"
+            android:layout_marginTop="30dp"
+            android:layout_alignEnd="@+id/tvControl"
+            android:layout_alignStart="@+id/tvControl"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:background="#db5540" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:id="@+id/sesion"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClick"
+            android:layout_below="@+id/tvCatalogo"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
