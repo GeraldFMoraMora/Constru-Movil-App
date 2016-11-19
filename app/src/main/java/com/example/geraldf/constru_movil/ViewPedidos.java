@@ -35,10 +35,10 @@ public class ViewPedidos extends AppCompatActivity{
         setContentView(R.layout.actviewpedidos);
 
         this._fecha=(TextView) findViewById(R.id._fechafecha);
-        this._hora=(TextView) findViewById(R.id._fechafecha);
-        this._id=(TextView) findViewById(R.id._fechafecha);
-        this._total=(TextView) findViewById(R.id._fechafecha);
-        this._estado=(TextView) findViewById(R.id._fechafecha);
+        this._hora=(TextView) findViewById(R.id._horahora);
+        this._id=(TextView) findViewById(R.id._idid);
+        this._total=(TextView) findViewById(R.id._totaltotal);
+        this._estado=(TextView) findViewById(R.id._estadoestado);
 
         this._entrada=getIntent();
         this._id_pedido=_entrada.getStringExtra("_id_pedido");
@@ -46,11 +46,7 @@ public class ViewPedidos extends AppCompatActivity{
 
         this.leerDatos();
 
-        this._fecha.setText(this._fecha1);
-        this._hora.setText(this._hora1);
-        this._id.setText(this._id1);
-        this._total.setText(this._total1);
-        this._estado.setText(this._estado1);
+
     }
     /**
      *
@@ -79,9 +75,13 @@ public class ViewPedidos extends AppCompatActivity{
                 this._hora1 = tupla.getString(tupla.getColumnIndex(_ModeloObjPedido.HORA));
                 this._estado1 = tupla.getString(tupla.getColumnIndex(_ModeloObjPedido.ESTADO));
                 this._total1 = tupla.getString(tupla.getColumnIndex(_ModeloObjPedido.TOTAL));
+                System.out.println("--------------------------------------------"+this._fecha);
+                this._fecha.setText(this._fecha1.toString());
+                this._hora.setText(this._hora1.toString());
+                this._id.setText(this._id1.toString());
+                this._total.setText(this._total1.toString());
+                this._estado.setText(this._estado1.toString());
             }
-            // Acciones...
-            System.out.println("ID:"+_id1);
         }
         bd.close();
     }
