@@ -160,7 +160,7 @@
                     android:textAlignment="center"
                     android:textColor="#ffffff"
                     android:textColorHint="#dbdbdb"
-                    android:hint="0" />
+                    android:hint="Unids." />
 
             </LinearLayout>
         </LinearLayout>

@@ -8,14 +8,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import basedatos.BaseDatosSecundaria;
 import basedatos.ModeloObjProducto;
-import basedatos.ModeloObjRol;
 import basedatos.MotorBaseDatos;
 
 /**
@@ -33,12 +35,28 @@ public class ViewCatalogo extends AppCompatActivity{
     private String username;
     private String usernameVendedor;
 
+    private Button _btnTerminar;
+
+    private int contDatos=0;
+
+    private SimpleDateFormat _fecha = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat _hora = new SimpleDateFormat("hh:mm:ss");
+    private String _formatFecha;
+    private String _formatHora;
+    private int _totalPedido=0;
+
     /**
      *
      * @param v
      */
     public void onClick(View v){
         switch (v.getId()){
+            case R.id.btnTerminar:
+                    if (this.contDatos!=0){
+                        this.contDatos=0;
+                        _btnTerminar.setVisibility(View.INVISIBLE);
+                    }
+                break;
         }
     }
     /**
@@ -53,7 +71,14 @@ public class ViewCatalogo extends AppCompatActivity{
         //this._valuesParaPedido=_entrada.getParcelableArrayListExtra("_valuesParaPedido");
         //Toast.makeText(getApplicationContext(),_valuesParaPedido.get(0), Toast.LENGTH_SHORT).show();
 
+        this._formatFecha= this._fecha.format(new Date());
+        this._formatHora = this._hora.format(new Date());
+        Toast.makeText(getApplicationContext(), this._formatFecha, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), this._formatHora, Toast.LENGTH_SHORT).show();
+
         _entrada=getIntent();
+
+        this._btnTerminar=(Button) findViewById(R.id.btnTerminar);
         this.username=_entrada.getStringExtra("username");
         this.usernameVendedor=_entrada.getStringExtra("usernameVendedor");
 
@@ -63,6 +88,10 @@ public class ViewCatalogo extends AppCompatActivity{
         listValues = new ArrayList<String>();
 
         this.consultLawyers();
+
+        if (this.contDatos!=0){
+            _btnTerminar.setVisibility(View.VISIBLE);
+        }
     }
 
     /**
@@ -100,7 +129,7 @@ public class ViewCatalogo extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Test();
+                VereficardatosParaPedido();
                 Toast.makeText(getApplicationContext(), listValues.get(position), Toast.LENGTH_SHORT).show();
                 _productoConsultar=listValues.get(position).toString();
                 ejecutarViewProducto();
@@ -123,7 +152,11 @@ public class ViewCatalogo extends AppCompatActivity{
         startActivity(_screen);
     }
 
-    public void Test(){
+    /**
+     * Metodo que funciona para realizar un acontabilidad de los datos almacenados en la tabla
+     * correspondiente.
+     */
+    public void VereficardatosParaPedido(){
         BaseDatosSecundaria admi= new BaseDatosSecundaria(this);
         SQLiteDatabase bd= admi.getWritableDatabase();
         Cursor tupla = bd.query("DATOS", // Nombre de la tabla
@@ -134,9 +167,12 @@ public class ViewCatalogo extends AppCompatActivity{
                 null, // Condición HAVING para GROUP BY
                 null); // Cláusula ORDER BY
         while(tupla.moveToNext()){
+            this.contDatos+=1;
+            this._totalPedido+=Integer.parseInt(tupla.getString(tupla.getColumnIndex("Precio")).toString())*Integer.parseInt(tupla.getString(tupla.getColumnIndex("Cantidad")).toString());
             Toast.makeText(getApplicationContext(), "----------------DSFSADKFKJDSAF-----------------------", Toast.LENGTH_SHORT).show();
             String name = tupla.getString(tupla.getColumnIndex("Producto"));
             String id = tupla.getString(tupla.getColumnIndex("Cantidad"));
+            System.out.println(this._totalPedido);
             // Acciones...
             System.out.println("A comprar: "+name);
             System.out.println("Un total de: "+id);

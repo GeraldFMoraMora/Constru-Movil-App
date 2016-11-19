@@ -109,22 +109,26 @@ public class ConstruMainActivity extends AppCompatActivity {
                 break;
             case R.id.btnRegCategoria:
                 _screenReg=new Intent(this,RegCategoria.class);
-                _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
+                _screenReg.putExtra("username",username);
+                _screenReg.putExtra("usernameVendedor",usernameVendedor);
                 startActivity(_screenReg);
                 break;
             case R.id.btnRegCliente:
                 _screenReg=new Intent(this,RegClientes.class);
-                _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
+                _screenReg.putExtra("username",username);
+                _screenReg.putExtra("usernameVendedor",usernameVendedor);
                 startActivity(_screenReg);
                 break;
             case R.id.btnRegProducto:
                 _screenReg=new Intent(this,RegProductos.class);
-                _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
+                _screenReg.putExtra("username",username);
+                _screenReg.putExtra("usernameVendedor",usernameVendedor);
                 startActivity(_screenReg);
                 break;
             case R.id.btnRegProvedor:
                 _screenReg= new Intent(this,RegProveedores.class);
-                _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
+                _screenReg.putExtra("username",username);
+                _screenReg.putExtra("usernameVendedor",usernameVendedor);
                 startActivity(_screenReg);
                 break;
             case R.id.sesion:

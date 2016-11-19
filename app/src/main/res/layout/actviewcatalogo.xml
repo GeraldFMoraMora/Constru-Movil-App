@@ -8,13 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Switch
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edit mode"
-            android:id="@+id/switch1"
-            android:layout_gravity="right" />
-
 
         <ListView
             android:layout_width="match_parent"
@@ -23,5 +16,17 @@
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.77"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terminar Pedido"
+            android:id="@+id/btnTerminar"
+            android:layout_gravity="center_horizontal"
+            android:background="#d38e0e"
+            android:textColor="#ffffff"
+            android:onClick="onClick"
+            android:visibility="invisible" />
+
     </LinearLayout>
+
 </LinearLayout>
