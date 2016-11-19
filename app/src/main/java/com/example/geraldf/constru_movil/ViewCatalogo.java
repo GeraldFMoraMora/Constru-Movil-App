@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import basedatos.BaseDatosSecundaria;
 import basedatos.ModeloObjProducto;
 import basedatos.ModeloObjRol;
 import basedatos.MotorBaseDatos;
@@ -26,6 +27,9 @@ public class ViewCatalogo extends AppCompatActivity{
     ListView prueba;
     ArrayList<String> listValues;
     private String _productoConsultar;
+    private Intent _entrada;
+    private ArrayList<ProductoObj> _valuesParaPedido = new ArrayList<ProductoObj>();
+
     /**
      *
      * @param v
@@ -42,6 +46,13 @@ public class ViewCatalogo extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actviewcatalogo);
+
+        _entrada=getIntent();
+        //this._valuesParaPedido=_entrada.getParcelableArrayListExtra("_valuesParaPedido");
+        //Toast.makeText(getApplicationContext(),_valuesParaPedido.get(0), Toast.LENGTH_SHORT).show();
+
+
+
         _modeloObjProducto=new ModeloObjProducto();
 
         this.prueba=(ListView)findViewById(R.id.turras);
@@ -85,7 +96,7 @@ public class ViewCatalogo extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-
+                Test();
                 Toast.makeText(getApplicationContext(), listValues.get(position), Toast.LENGTH_SHORT).show();
                 _productoConsultar=listValues.get(position).toString();
                 ejecutarViewProducto();
@@ -102,6 +113,27 @@ public class ViewCatalogo extends AppCompatActivity{
         _screen=new Intent(this,ViewProductos.class);
         _screen.putExtra("_productoConsultar",this._productoConsultar);
         startActivity(_screen);
+    }
+
+    public void Test(){
+        BaseDatosSecundaria admi= new BaseDatosSecundaria(this);
+        SQLiteDatabase bd= admi.getWritableDatabase();
+        Cursor tupla = bd.query("DATOS", // Nombre de la tabla
+                null, // Lista de Columnas a consultar
+                null, // Columnas para la cláusula WHERE
+                null, // Valores a comparar con las columnas del WHERE
+                null, // Agrupar con GROUP BY
+                null, // Condición HAVING para GROUP BY
+                null); // Cláusula ORDER BY
+        while(tupla.moveToNext()){
+            Toast.makeText(getApplicationContext(), "----------------DSFSADKFKJDSAF-----------------------", Toast.LENGTH_SHORT).show();
+            String name = tupla.getString(tupla.getColumnIndex("Producto"));
+            String id = tupla.getString(tupla.getColumnIndex("Cantidad"));
+            // Acciones...
+            System.out.println("A comprar: "+name);
+            System.out.println("Un total de: "+id);
+        }
+        bd.close();
     }
 
 }

@@ -14,8 +14,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
+import basedatos.BaseDatosSecundaria;
 import basedatos.ModeloObjRol;
 import basedatos.ModeloObjRol_Usu;
 import basedatos.ModeloObjSucursal;
@@ -42,6 +44,7 @@ public class ConstruMainActivity extends AppCompatActivity {
 
     private Intent _screenReg;
     private Intent _entrada;
+
     private String username;
     private String usernameVendedor;
 
@@ -49,8 +52,9 @@ public class ConstruMainActivity extends AppCompatActivity {
     private ContentValues _valuesSucursales;
     private ContentValues _valuesUser;
     private ContentValues _valuesRol_Cliente;
+    private ContentValues _valuesTest;
 
-    private ContentValues _valuesParaPedido;
+    private ArrayList<ProductoObj> _valuesParaPedido;
 
     public ModeloObjRol _modeloObjRol;
     public ModeloObjSucursal _modeloObjSucursal;
@@ -99,33 +103,40 @@ public class ConstruMainActivity extends AppCompatActivity {
             case R.id.tvCatalogo:
                 Toast.makeText(getApplicationContext(), "Catalogo", Toast.LENGTH_SHORT).show();
                 _screenReg=new Intent(this,ViewCatalogo.class);
-                _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
+                _screenReg.putExtra("username",username);
+                _screenReg.putExtra(".usernameVendedor",usernameVendedor);
                 startActivity(_screenReg);
                 break;
             case R.id.btnRegCategoria:
                 _screenReg=new Intent(this,RegCategoria.class);
+                _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
                 startActivity(_screenReg);
                 break;
             case R.id.btnRegCliente:
                 _screenReg=new Intent(this,RegClientes.class);
+                _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
                 startActivity(_screenReg);
                 break;
             case R.id.btnRegProducto:
                 _screenReg=new Intent(this,RegProductos.class);
+                _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
                 startActivity(_screenReg);
                 break;
             case R.id.btnRegProvedor:
                 _screenReg= new Intent(this,RegProveedores.class);
+                _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
                 startActivity(_screenReg);
                 break;
             case R.id.sesion:
                 _screenReg=new Intent(this,ViewLoginVendedor.class);
                 _screenReg.putExtra("usernameviewer", this.username);
+                _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
                 startActivity(_screenReg);
                 break;
             case R.id.saludo:
                 if (this._Saludo0.getText().equals("Iniciar Sesión")){
                     _screenReg=new Intent(this,ViewLoginCliente.class);
+                    _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
                     startActivity(_screenReg);
                 }
                 break;
@@ -160,7 +171,10 @@ public class ConstruMainActivity extends AppCompatActivity {
         _valuesSucursales=new ContentValues();
         _valuesUser= new ContentValues();
         _valuesRol_Cliente=new ContentValues();
+        _valuesTest=new ContentValues();
 
+        _valuesParaPedido=new ArrayList<ProductoObj>();
+        _valuesParaPedido.add(0,new ProductoObj("1","perro","2"));
 
         comidas = new LinkedList();
         ArrayAdapter spinner_adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, comidas);
@@ -168,9 +182,10 @@ public class ConstruMainActivity extends AppCompatActivity {
 
         _Saludo0=(TextView) findViewById(R.id.saludo);
         _Saludo1=(TextView) findViewById(R.id.saludo1);
+
         _entrada=getIntent();
         this.username=_entrada.getStringExtra("usernameviewer");
-        this.usernameVendedor=_entrada.getStringExtra("usernamevendedorviewer");
+        this.usernameVendedor=_entrada.getStringExtra("usernamvendedorviewere");
         _Saludo0.setText("Usuario: "+username);
         _Saludo1.setText("Vendedor: "+usernameVendedor);
         if(_Saludo0.getText().toString().equals("Usuario: "+null)){
@@ -194,6 +209,13 @@ public class ConstruMainActivity extends AppCompatActivity {
      *
      */
     public void llenadoDatos(){
+        BaseDatosSecundaria administrador= new BaseDatosSecundaria(this);
+        SQLiteDatabase bdsecunadaria= administrador.getWritableDatabase();
+        _valuesTest.put("Producto", "Banano");
+        _valuesTest.put("Cantidad","12");
+        bdsecunadaria.insert("DATOS",null,this._valuesTest);
+        bdsecunadaria.close();
+
         MotorBaseDatos admi= new MotorBaseDatos(this);
         SQLiteDatabase bd= admi.getWritableDatabase();
         //this._valuesRol.put(this._modeloObjCategoria.ID, "0");
@@ -208,7 +230,7 @@ public class ConstruMainActivity extends AppCompatActivity {
         bd.insert("ROL",null,this._valuesRol);
 
         if(this.bandera0!=true){
-            this._valuesUser.put(this._modeloObjUsuario.USER, "admin");
+            this._valuesUser.put(this._modeloObjUsuario.USER, "admin1");
             this._valuesUser.put(this._modeloObjUsuario.CONTRASEÑA, "admin");
             this._valuesUser.put(this._modeloObjUsuario.CEDULA, "116040975");
             this._valuesUser.put(this._modeloObjUsuario.NOMBRE, "Vendedor");
