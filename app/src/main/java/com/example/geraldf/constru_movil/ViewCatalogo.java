@@ -207,7 +207,7 @@ public class ViewCatalogo extends AppCompatActivity{
         this._valuesPedido.put(this._ModeloObjPedido.HORA, this._formatHora);
         this._valuesPedido.put(this._ModeloObjPedido.TOTAL, String.valueOf(this._totalPedido));
         this._valuesPedido.put(this._ModeloObjPedido.ESTADO, "1");
-        bd.insert("USUARIO",null,this._valuesPedido);
+        bd.insert("PEDIDO",null,this._valuesPedido);
         bd.close();
         Toast.makeText(getApplicationContext(), "llenado con exito", Toast.LENGTH_SHORT).show();
     }

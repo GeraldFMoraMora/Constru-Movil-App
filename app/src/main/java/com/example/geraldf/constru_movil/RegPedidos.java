@@ -33,6 +33,8 @@ public class RegPedidos extends AppCompatActivity {
     protected void onCreate(Bundle savedIntanceState){
         super.onCreate(savedIntanceState);
         setContentView(R.layout.actpedidos);
+        listValues = new ArrayList<String>();
+        this.prueba=(ListView)findViewById(R.id.turras1);
         this.crearmenu();
     }
 
@@ -57,10 +59,14 @@ public class RegPedidos extends AppCompatActivity {
                 null, // Condición HAVING para GROUP BY
                 null); // Cláusula ORDER BY
         while(tupla.moveToNext()){
-            String name = tupla.getString(tupla.getColumnIndex(_moModeloObjPedido.ID));
+            String id = tupla.getString(tupla.getColumnIndex(_moModeloObjPedido.ID));
+            String fecha = tupla.getString(tupla.getColumnIndex(_moModeloObjPedido.FECHA));
+            String hora = tupla.getString(tupla.getColumnIndex(_moModeloObjPedido.HORA));
+            String estado = tupla.getString(tupla.getColumnIndex(_moModeloObjPedido.ESTADO));
+            String total = tupla.getString(tupla.getColumnIndex(_moModeloObjPedido.TOTAL));
             // Acciones...
-            System.out.println("ID:"+name);
-            this.listValues.add(name);
+            System.out.println("ID:"+id);
+            this.listValues.add(id);
         }
         bd.close();
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listValues);

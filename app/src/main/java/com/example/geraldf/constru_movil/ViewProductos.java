@@ -193,6 +193,7 @@ public class ViewProductos extends AppCompatActivity{
          _valuesPedido.put("Precio",this._productoPrecio);
          _valuesPedido.put("Cantidad",this._etAdquirir.getText().toString());
          _valuesPedido.put("Vendedor",this.username);
+        _valuesPedido.put("Id_Producto",this._productoId);
          bdsecunadaria.insert("DATOS",null,this._valuesPedido);
          bdsecunadaria.close();
     }
