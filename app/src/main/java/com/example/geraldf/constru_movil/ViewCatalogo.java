@@ -82,6 +82,12 @@ public class ViewCatalogo extends AppCompatActivity{
         this.username=_entrada.getStringExtra("username");
         this.usernameVendedor=_entrada.getStringExtra("usernameVendedor");
 
+        this.VereficardatosParaPedido();
+
+        if (this.contDatos!=0){
+            _btnTerminar.setVisibility(View.VISIBLE);
+        }
+
         _modeloObjProducto=new ModeloObjProducto();
 
         this.prueba=(ListView)findViewById(R.id.turras);
@@ -89,9 +95,7 @@ public class ViewCatalogo extends AppCompatActivity{
 
         this.consultLawyers();
 
-        if (this.contDatos!=0){
-            _btnTerminar.setVisibility(View.VISIBLE);
-        }
+
     }
 
     /**
@@ -130,6 +134,7 @@ public class ViewCatalogo extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 VereficardatosParaPedido();
+                _totalPedido=0;
                 Toast.makeText(getApplicationContext(), listValues.get(position), Toast.LENGTH_SHORT).show();
                 _productoConsultar=listValues.get(position).toString();
                 ejecutarViewProducto();
@@ -169,10 +174,10 @@ public class ViewCatalogo extends AppCompatActivity{
         while(tupla.moveToNext()){
             this.contDatos+=1;
             this._totalPedido+=Integer.parseInt(tupla.getString(tupla.getColumnIndex("Precio")).toString())*Integer.parseInt(tupla.getString(tupla.getColumnIndex("Cantidad")).toString());
-            Toast.makeText(getApplicationContext(), "----------------DSFSADKFKJDSAF-----------------------", Toast.LENGTH_SHORT).show();
+          
             String name = tupla.getString(tupla.getColumnIndex("Producto"));
             String id = tupla.getString(tupla.getColumnIndex("Cantidad"));
-            System.out.println(this._totalPedido);
+            System.out.println("Total pedido: "+this._totalPedido);
             // Acciones...
             System.out.println("A comprar: "+name);
             System.out.println("Un total de: "+id);

@@ -47,6 +47,7 @@ public class ViewProductos extends AppCompatActivity{
         switch (v.getId()){
             case R.id.btnCarrito:
                 this.almacenoDatos();
+                finish();
                 break;
         }
     }
@@ -189,7 +190,7 @@ public class ViewProductos extends AppCompatActivity{
         BaseDatosSecundaria administrador= new BaseDatosSecundaria(this);
          SQLiteDatabase bdsecunadaria= administrador.getWritableDatabase();
          _valuesPedido.put("Producto", this._productoNombre);
-        _valuesPedido.put("Precio",this._productoPrecio);
+         _valuesPedido.put("Precio",this._productoPrecio);
          _valuesPedido.put("Cantidad",this._etAdquirir.getText().toString());
          _valuesPedido.put("Vendedor",this.username);
          bdsecunadaria.insert("DATOS",null,this._valuesPedido);
