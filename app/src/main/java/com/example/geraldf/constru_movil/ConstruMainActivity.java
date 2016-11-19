@@ -50,6 +50,8 @@ public class ConstruMainActivity extends AppCompatActivity {
     private ContentValues _valuesUser;
     private ContentValues _valuesRol_Cliente;
 
+    private ContentValues _valuesParaPedido;
+
     public ModeloObjRol _modeloObjRol;
     public ModeloObjSucursal _modeloObjSucursal;
     public ModeloObjUsuario _modeloObjUsuario;
@@ -97,6 +99,7 @@ public class ConstruMainActivity extends AppCompatActivity {
             case R.id.tvCatalogo:
                 Toast.makeText(getApplicationContext(), "Catalogo", Toast.LENGTH_SHORT).show();
                 _screenReg=new Intent(this,ViewCatalogo.class);
+                _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
                 startActivity(_screenReg);
                 break;
             case R.id.btnRegCategoria:
