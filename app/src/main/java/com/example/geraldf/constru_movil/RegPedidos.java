@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,7 +27,10 @@ public class RegPedidos extends AppCompatActivity {
     ArrayList<String> listValues;
     private ModeloObjPedido _moModeloObjPedido;
     private String _pedidoConsultar;
+    private String usernameVendedor;
+    private String username;
     private Intent _screen;
+    private Intent _entrada;
     /**
      *
      * @param savedIntanceState
@@ -35,6 +39,11 @@ public class RegPedidos extends AppCompatActivity {
     protected void onCreate(Bundle savedIntanceState){
         super.onCreate(savedIntanceState);
         setContentView(R.layout.actpedidos);
+
+        this._entrada=getIntent();
+        this.username=_entrada.getStringExtra("username");
+        this.usernameVendedor=_entrada.getStringExtra("usernameVendedor");
+
         listValues = new ArrayList<String>();
         this.prueba=(ListView)findViewById(R.id.turras1);
         this.crearmenu();
@@ -95,6 +104,8 @@ public class RegPedidos extends AppCompatActivity {
     public void openView(){
         _screen= new Intent(this, ViewPedidos.class);
         _screen.putExtra("_id_pedido",_pedidoConsultar);
+        _screen.putExtra("username",username);
+        _screen.putExtra("usernameVendedor",usernameVendedor);
         startActivity(_screen);
     }
 }

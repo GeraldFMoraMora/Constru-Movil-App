@@ -1,5 +1,6 @@
 package com.example.geraldf.constru_movil;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import basedatos.BaseDatosSecundaria;
+import basedatos.ModeloObjCli_Ped;
 import basedatos.ModeloObjPedido;
 import basedatos.MotorBaseDatos;
 
@@ -22,9 +24,15 @@ import basedatos.MotorBaseDatos;
 public class ViewPedidos extends AppCompatActivity{
     private TextView _fecha,_hora,_estado,_total,_id;
     private String _id_pedido;
-    private Intent _entrada;
     private String _hora1,_fecha1,_total1,_estado1,_id1;
     private ModeloObjPedido _ModeloObjPedido;
+    private ModeloObjCli_Ped _ModeloObjCli_ped;
+    private String usernameVendedor;
+    private String username;
+    private Intent _entrada;
+    private ContentValues _valuesPedido;
+    private ContentValues _valuesPedido1;
+    private ContentValues _valuesPedido2;
     /**
      *
      * @param savedInstanceState
@@ -34,6 +42,9 @@ public class ViewPedidos extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actviewpedidos);
 
+        this._valuesPedido=new ContentValues();
+        this._valuesPedido1=new ContentValues();
+
         this._fecha=(TextView) findViewById(R.id._fechafecha);
         this._hora=(TextView) findViewById(R.id._horahora);
         this._id=(TextView) findViewById(R.id._idid);
@@ -42,6 +53,8 @@ public class ViewPedidos extends AppCompatActivity{
 
         this._entrada=getIntent();
         this._id_pedido=_entrada.getStringExtra("_id_pedido");
+        this.username=_entrada.getStringExtra("username");
+        this.usernameVendedor=_entrada.getStringExtra("usernameVendedor");
         System.out.println("+++++************************+++++++++++++++++++********************++++++++++++"+_id_pedido);
 
         this.leerDatos();
@@ -75,14 +88,55 @@ public class ViewPedidos extends AppCompatActivity{
                 this._hora1 = tupla.getString(tupla.getColumnIndex(_ModeloObjPedido.HORA));
                 this._estado1 = tupla.getString(tupla.getColumnIndex(_ModeloObjPedido.ESTADO));
                 this._total1 = tupla.getString(tupla.getColumnIndex(_ModeloObjPedido.TOTAL));
-                System.out.println("--------------------------------------------"+this._fecha);
                 this._fecha.setText(this._fecha1.toString());
                 this._hora.setText(this._hora1.toString());
                 this._id.setText(this._id1.toString());
                 this._total.setText(this._total1.toString());
                 this._estado.setText(this._estado1.toString());
+                this.llenadoCliente_Pedido();
+                this.llenadoVendedor_Pedido();
             }
         }
         bd.close();
     }
+    /**
+     *
+     */
+    public void llenadoCliente_Pedido(){
+        MotorBaseDatos admi= new MotorBaseDatos(this);
+        SQLiteDatabase bd= admi.getWritableDatabase();
+        this._valuesPedido.put(this._ModeloObjCli_ped.ID_USARIO, this.username);
+        this._valuesPedido.put(this._ModeloObjCli_ped.ID_PEDIDO, this._id1.toString());
+        bd.insert("CLIENTE_PEDIDO",null,this._valuesPedido);
+        bd.close();
+        Toast.makeText(getApplicationContext(), "llenado con exito", Toast.LENGTH_SHORT).show();
+    }
+    /**
+     *
+     */
+    public void llenadoVendedor_Pedido(){
+        MotorBaseDatos admi= new MotorBaseDatos(this);
+        SQLiteDatabase bd= admi.getWritableDatabase();
+        this._valuesPedido1.put(this._ModeloObjCli_ped.ID_USARIO, this.usernameVendedor);
+        this._valuesPedido1.put(this._ModeloObjCli_ped.ID_PEDIDO, this._id1.toString());
+        bd.insert("VENDEDOR_PEDIDO",null,this._valuesPedido1);
+        bd.close();
+        Toast.makeText(getApplicationContext(), "llenado con exito2", Toast.LENGTH_SHORT).show();
+    }
+    /**
+     *
+     */
+    public void llenadoProducto_Pedido(){
+        MotorBaseDatos admi= new MotorBaseDatos(this);
+        SQLiteDatabase bd= admi.getWritableDatabase();
+        MotorBaseDatos admi1= new MotorBaseDatos(this);
+        SQLiteDatabase bd1= admi1.getWritableDatabase();
+        this._valuesPedido1.put(this._ModeloObjCli_ped.ID_USARIO, this.usernameVendedor);
+        this._valuesPedido1.put(this._ModeloObjCli_ped.ID_PEDIDO, this._id1.toString());
+        bd.insert("PRODUCTO_PEDIDO",null,this._valuesPedido1);
+        bd1.close();
+        bd.close();
+        Toast.makeText(getApplicationContext(), "llenado con exito2", Toast.LENGTH_SHORT).show();
+    }
+
 }
