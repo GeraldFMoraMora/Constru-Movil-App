@@ -1,15 +1,19 @@
 package com.example.geraldf.constru_movil;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import basedatos.BaseDatosSecundaria;
 import basedatos.ModeloObjCat_Pro;
 import basedatos.ModeloObjCategoria;
 import basedatos.ModeloObjProducto;
@@ -32,6 +36,20 @@ public class ViewProductos extends AppCompatActivity{
     private EditText _etAdquirir;
     private String _idCategoria;
     private String _nombreCategoria;
+    private ContentValues _valuesPedido;
+    private String username,usernameVendedor;
+    private Button _btnCarrito;
+    /**
+     *
+     * @param v
+     */
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.btnCarrito:
+                this.almacenoDatos();
+                break;
+        }
+    }
     /**
      *
      * @param savedInstanceState
@@ -43,14 +61,22 @@ public class ViewProductos extends AppCompatActivity{
         this._imagen=(ImageView)findViewById(R.id.imageViewProducto);
         this._imagen.setImageResource(R.drawable.imagen_no_disponible);
 
+        this._valuesPedido= new ContentValues();
+
         this._tvNombre=(TextView) findViewById(R.id.viewNombre);
         this._tvPrecio=(TextView) findViewById(R.id.viewPrecio);
         this._tvCategoria=(TextView) findViewById(R.id.ViewCategoria);
         this._tvCantidad=(TextView) findViewById(R.id.ViewCantidad);
+
         this._etAdquirir=(EditText) findViewById(R.id.regCantidad);
+
+        this._btnCarrito=(Button) findViewById(R.id.btnCarrito);
 
         this._entradaDatos=getIntent();
         this._productoSeleccionado=_entradaDatos.getStringExtra("_productoConsultar");
+        this.username=_entradaDatos.getStringExtra("username");
+        this.usernameVendedor=_entradaDatos.getStringExtra("usernameVendedor");
+
         Toast.makeText(getApplicationContext(), _productoSeleccionado, Toast.LENGTH_SHORT).show();
 
         this.consultEachProducto();
@@ -154,6 +180,19 @@ public class ViewProductos extends AppCompatActivity{
             }
         }
         bd.close();
+    }
+    /**
+     * Metodo que se encargara de guardar los datos del producto a comprar en la base de datos
+     * secundanria
+     */
+    public void almacenoDatos(){
+        BaseDatosSecundaria administrador= new BaseDatosSecundaria(this);
+         SQLiteDatabase bdsecunadaria= administrador.getWritableDatabase();
+         _valuesPedido.put("Producto", this._productoNombre);
+         _valuesPedido.put("Cantidad",this._etAdquirir.getText().toString());
+         _valuesPedido.put("Vendedor",this.username);
+         bdsecunadaria.insert("DATOS",null,this._valuesPedido);
+         bdsecunadaria.close();
     }
 
 }

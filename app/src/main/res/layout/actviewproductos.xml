@@ -36,7 +36,8 @@
                     android:layout_marginTop="20dp"
                     android:text="Add to cart"
                     android:id="@+id/btnCarrito"
-                    android:background="#f56923" />
+                    android:background="#f56923"
+                    android:onClick="onClick"/>
 
                 <Button
                     android:layout_width="match_parent"
@@ -45,7 +46,8 @@
                     android:text="Fast Buy"
                     android:id="@+id/btnFast"
                     android:layout_gravity="center_horizontal"
-                    android:background="#f4b523" />
+                    android:background="#f4b523"
+                    android:onClick="onClick"/>
             </LinearLayout>
 
             <LinearLayout

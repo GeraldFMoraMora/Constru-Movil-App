@@ -30,6 +30,9 @@ public class ViewCatalogo extends AppCompatActivity{
     private Intent _entrada;
     private ArrayList<ProductoObj> _valuesParaPedido = new ArrayList<ProductoObj>();
 
+    private String username;
+    private String usernameVendedor;
+
     /**
      *
      * @param v
@@ -47,11 +50,12 @@ public class ViewCatalogo extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actviewcatalogo);
 
-        _entrada=getIntent();
         //this._valuesParaPedido=_entrada.getParcelableArrayListExtra("_valuesParaPedido");
         //Toast.makeText(getApplicationContext(),_valuesParaPedido.get(0), Toast.LENGTH_SHORT).show();
 
-
+        _entrada=getIntent();
+        this.username=_entrada.getStringExtra("username");
+        this.usernameVendedor=_entrada.getStringExtra("usernameVendedor");
 
         _modeloObjProducto=new ModeloObjProducto();
 
@@ -112,6 +116,10 @@ public class ViewCatalogo extends AppCompatActivity{
     public void ejecutarViewProducto(){
         _screen=new Intent(this,ViewProductos.class);
         _screen.putExtra("_productoConsultar",this._productoConsultar);
+        _screen.putExtra("username",username);
+        _screen.putExtra("usernameVendedor",usernameVendedor);
+        Toast.makeText(getApplicationContext(), this.username, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), this.usernameVendedor, Toast.LENGTH_SHORT).show();
         startActivity(_screen);
     }
 

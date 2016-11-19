@@ -104,7 +104,7 @@ public class ConstruMainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Catalogo", Toast.LENGTH_SHORT).show();
                 _screenReg=new Intent(this,ViewCatalogo.class);
                 _screenReg.putExtra("username",username);
-                _screenReg.putExtra(".usernameVendedor",usernameVendedor);
+                _screenReg.putExtra("usernameVendedor",usernameVendedor);
                 startActivity(_screenReg);
                 break;
             case R.id.btnRegCategoria:
@@ -136,7 +136,8 @@ public class ConstruMainActivity extends AppCompatActivity {
             case R.id.saludo:
                 if (this._Saludo0.getText().equals("Iniciar Sesión")){
                     _screenReg=new Intent(this,ViewLoginCliente.class);
-                    _screenReg.putExtra("_valuesParaPedido",_valuesParaPedido);
+                    _screenReg.putExtra("username",username);
+                    _screenReg.putExtra("usernameVendedor",usernameVendedor);
                     startActivity(_screenReg);
                 }
                 break;
@@ -185,7 +186,8 @@ public class ConstruMainActivity extends AppCompatActivity {
 
         _entrada=getIntent();
         this.username=_entrada.getStringExtra("usernameviewer");
-        this.usernameVendedor=_entrada.getStringExtra("usernamvendedorviewere");
+        this.usernameVendedor=_entrada.getStringExtra("usernamevendedorviewer");
+
         _Saludo0.setText("Usuario: "+username);
         _Saludo1.setText("Vendedor: "+usernameVendedor);
         if(_Saludo0.getText().toString().equals("Usuario: "+null)){
@@ -209,12 +211,12 @@ public class ConstruMainActivity extends AppCompatActivity {
      *
      */
     public void llenadoDatos(){
-        BaseDatosSecundaria administrador= new BaseDatosSecundaria(this);
+        /**BaseDatosSecundaria administrador= new BaseDatosSecundaria(this);
         SQLiteDatabase bdsecunadaria= administrador.getWritableDatabase();
         _valuesTest.put("Producto", "Banano");
         _valuesTest.put("Cantidad","12");
         bdsecunadaria.insert("DATOS",null,this._valuesTest);
-        bdsecunadaria.close();
+        bdsecunadaria.close();*/
 
         MotorBaseDatos admi= new MotorBaseDatos(this);
         SQLiteDatabase bd= admi.getWritableDatabase();

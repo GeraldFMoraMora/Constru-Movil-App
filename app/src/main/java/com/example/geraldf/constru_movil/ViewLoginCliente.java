@@ -17,6 +17,7 @@ import basedatos.MotorBaseDatos;
  */
 public class ViewLoginCliente extends AppCompatActivity {
     private Intent _screen;
+    private Intent _entrada;
     private EditText _usernameET;
     private EditText _usercontrasenaET;
     private String usernameviewer;
@@ -27,6 +28,9 @@ public class ViewLoginCliente extends AppCompatActivity {
 
     private ModeloObjUsuario _modeloObjUsuario= new ModeloObjUsuario();
     private String[] _atributos= new String[]{_modeloObjUsuario.USER,_modeloObjUsuario.CONTRASEÑA};
+
+    private String username;
+    private String usernameVendedor;
 
     /**
      *
@@ -42,6 +46,7 @@ public class ViewLoginCliente extends AppCompatActivity {
                         this.usernameviewer =this._usernameET.getText().toString();
                         _screen=new Intent(this,ConstruMainActivity.class);
                         _screen.putExtra("usernameviewer", usernameviewer);
+                        _screen.putExtra("usernamevendedorviewer", usernameVendedor);
                         startActivity(_screen);
                     }else{
                         Toast.makeText(getApplicationContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
@@ -59,6 +64,9 @@ public class ViewLoginCliente extends AppCompatActivity {
         setContentView(R.layout.actviewlogincliente);
         this._usernameET = (EditText) findViewById(R.id.entryUserName);
         this._usercontrasenaET = (EditText) findViewById(R.id.entryUserPassword);
+        _entrada=getIntent();
+        this.username=_entrada.getStringExtra("username");
+        this.usernameVendedor=_entrada.getStringExtra("usernameVendedor");
     }
     @Override
     public void onBackPressed(){
